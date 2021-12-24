@@ -1,11 +1,10 @@
-# Assignment 1: Reverse-mode Automatic Differentiation
+# Warm-up Assignment: Reverse-mode Automatic Differentiation
 
 In this assignment, we would implement reverse-mode auto-diff.
 
 Our code should be able to construct simple expressions, e.g. y=x1*x2+x1,
 and evaluate their outputs as well as their gradients (or adjoints), e.g. y, dy/dx1 and dy/dx2.
 
-There are many ways to implement auto-diff, as explained in the slides for Lecture 4.
 For this assignment, we use the approach of a computation graph and an explicit construction of gradient (adjoint) nodes, similar to what MXNet and Tensorflow do.
 
 Key concepts and data structures that we would need to implement are
@@ -33,7 +32,7 @@ y = x1 * x2 + x1
 ```
 Now, the computation graph looks like this,
 
-![1st graph](https://github.com/dlsys-course/assignment1/blob/master/img/hwk1_graph1.png)
+![1st graph](https://github.com/danyangz/cps590dcs-assignment/blob/master/img/hwk1_graph1.png)
 
 Here, each node is associated with an operator object (we only need a singleton instance for each operator since it is used in an immutable way).
 - Node x1 and x2 are associated with Placeholder Op.
@@ -52,12 +51,12 @@ If we want to evaluate the gradients of y with respect to x1 and x2, as we would
 grad_x1, grad_x2 = ad.gradients(y, [x1, x2])
 ```
 
-According to the reverse-mode autodiff algorithm described in the lecture, we create a gradient node for each node in the existing graph and return those that user are interested in evaluating.
+We create a gradient node for each node in the existing graph and return those that user are interested in evaluating.
 
 We do this in a reverse topological order, e.g., y, (x1+x2), x1, x2, as shown in the figures below
 
-![2nd graph](https://github.com/dlsys-course/assignment1/blob/master/img/hwk1_graph2.png)
-![3rd graph](https://github.com/dlsys-course/assignment1/blob/master/img/hwk1_graph3.png)
+![2nd graph](https://github.com/danyangz/cps590dcs-assignment/blob/master/img/hwk1_graph2.png)
+![3rd graph](https://github.com/danyangz/cps590dcs-assignment/blob/master/img/hwk1_graph3.png)
 
 
 Once we construct the gradients node, and have references to them, we can evaluate the gradients using Executor as before,
@@ -83,7 +82,7 @@ Run all tests with
 nosetests -v autodiff_test.py
 ```
 
-### Bonus points
+### Bonus challenges
 Once your code can clear all tests, your autodiff module is almost ready to train a logistic regression model. If you are up for a challenge, try 
 
 - Implement all missing operators necessary for a logistic regression, e.g. log, reduce_sum. 
@@ -105,8 +104,11 @@ Once your code can clear all tests, your autodiff module is almost ready to trai
 
 ## Submitting your work
 
-Please submit your autodiff.tar.gz to Canvas dropbox under [Assignment 1](https://canvas.uw.edu/courses/1199471/assignments/4214861).
+Please submit your autodiff.tar.gz to Gradescope.
 ```bash
 # compress
-tar czvf assignment1.tar.gz assignment1/
+tar czvf assignment.tar.gz assignment/
 ```
+
+## Acknowledgement
+This programming assignment is copied from https://github.com/dlsys-course/assignment1-2018
