@@ -82,26 +82,6 @@ Run all tests with
 nosetests -v autodiff_test.py
 ```
 
-### Bonus challenges
-Once your code can clear all tests, your autodiff module is almost ready to train a logistic regression model. If you are up for a challenge, try 
-
-- Implement all missing operators necessary for a logistic regression, e.g. log, reduce_sum. 
-- Write a simple training loop that updates parameters using gradients computed from autodiff module.
-
-### Grading rubrics
-- autodiff_test.test_identity ... 1 pt
-- autodiff_test.test_add_by_const ... 1 pt
-- autodiff_test.test_mul_by_const ... 1 pt
-- autodiff_test.test_add_two_vars ... 1 pt
-- autodiff_test.test_mul_two_vars ... 1 pt
-- autodiff_test.test_add_mul_mix_1 ... 2 pt
-- autodiff_test.test_add_mul_mix_2 ... 2 pt
-- autodiff_test.test_add_mul_mix_3 ... 2 pt
-- autodiff_test.test_grad_of_grad ... 2 pt
-- autodiff_test.test_matmul_two_vars ... 2 pt
-
-- bonus (training logistic regession) ... 5 pt
-
 ## Submitting your work
 
 Please submit your autodiff.py to Gradescope. You will get a grade between 0 and 100 from gradescope immediately.
