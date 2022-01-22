@@ -104,11 +104,7 @@ Once your code can clear all tests, your autodiff module is almost ready to trai
 
 ## Submitting your work
 
-Please submit your autodiff.tar.gz to Gradescope.
-```bash
-# compress
-tar czvf assignment.tar.gz assignment/
-```
+Please submit your autodiff.py to Gradescope. You will get a grade between 0 and 100 from gradescope immediately.
 
 ## Acknowledgement
 This programming assignment is copied from https://github.com/dlsys-course/assignment1-2018
